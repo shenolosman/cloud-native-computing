@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand/v2"
 	"strings"
 )
 
@@ -159,33 +160,152 @@ func main() {
 	// }
 
 	//8. IF #8
-	var summa float64
-	var harRabatt string
+	// var summa float64
+	// var harRabatt string
 
-	fmt.Print("Mata in summan :")
-	fmt.Scan(&harRabatt)
-	fmt.Print("Har du rabat?y/n :")
-	fmt.Scan(&harRabatt)
+	// fmt.Print("Mata in summan :")
+	// fmt.Scan(&summa)
+	// fmt.Print("Har du rabat?y/n :")
+	// fmt.Scan(&harRabatt)
 
-	harRabatt = strings.ToLower(harRabatt)
+	// harRabatt = strings.ToLower(harRabatt)
 
-	if summa >= 15 && summa <= 25 {
-		if harRabatt == "ja" {
-			fmt.Println("Du kan köpa en liten hamburgare och en pommes frites.")
-		} else {
-			fmt.Println("Du kan köpa en liten hamburgare.")
+	// if summa >= 15 && summa <= 25 {
+	// 	if harRabatt == "ja" {
+	// 		fmt.Println("Du kan köpa en liten hamburgare och en pommes frites.")
+	// 	} else {
+	// 		fmt.Println("Du kan köpa en liten hamburgare.")
+	// 	}
+	// } else if summa > 25 && summa <= 50 {
+	// 	if harRabatt == "ja" {
+	// 		fmt.Println("Du kan köpa en stor hamburgare och pommes frites.")
+	// 	} else {
+	// 		fmt.Println("Du kan köpa en stor hamburgare.")
+	// 	}
+	// } else if summa > 50 && summa <= 60 && harRabatt == "ja" {
+	// 	fmt.Println("Du kan köpa ett meal med dryck.")
+	// } else if summa > 60 {
+	// 	fmt.Println("Du kan köpa ett meal med dryck.")
+	// } else {
+	// 	fmt.Println("Tyvärr, du har inte tillräckligt med pengar.")
+	// }
+
+	// 	------------LOOPAR
+	// 1. LOOP #1
+	// Skapa ett program som skriver ut talen 0-10 på skärmen. Lös detta med en loop.
+	// for i := 0; i < 11; i++ {
+	// 	fmt.Println(i)
+	// }
+
+	// 2. LOOP #2
+	// Skapa ett program där användaren får mata in två tal. Låt sedan programmet skriva ut alla
+	// tal som finns mellan dessa två tal på skärmen. Lös detta med en loop.
+	// var no1, no2 int
+	// fmt.Println("---Mata in två tal---")
+	// fmt.Print("Första tal :")
+	// fmt.Scan(&no1)
+	// fmt.Print("Andra tal :")
+	// fmt.Scan(&no2)
+
+	// if no1 < no2 {
+	// 	for i := no1 + 1; i < no2; i++ {
+	// 		fmt.Println(i)
+	// 	}
+	// } else if no1 > no2 {
+	// 	for i := no1 - 1; i > no2; i-- {
+	// 		fmt.Println(i)
+	// 	}
+	// } else {
+	// 	fmt.Println("Talet är lika!")
+	// }
+
+	// 3. LOOP #3
+	// Skapa ett program där användaren
+	// Får mata in två tal.
+	// Skriv sedan till skärmen summan av de två talen.
+	// Skriv sedan en fråga- Vill du fortsätta(J/N)?.
+	// Svarar användaren J återupprepas punkt a-c
+	// Svarar användaren N avbryts programmet
+
+	// var fortsätta bool = true
+	// for fortsätta {
+	// 	var no1, no2 int
+	// 	fmt.Println("---Mata in två tal---")
+	// 	fmt.Print("Första tal :")
+	// 	fmt.Scan(&no1)
+	// 	fmt.Print("Andra tal :")
+	// 	fmt.Scan(&no2)
+	// 	fmt.Printf("Summan av två talet är %v+%v=%v\n", no1, no2, no1+no2)
+	// 	var svaret string
+	// 	fmt.Print("Vill du fortsätta programmet?y/n :")
+	// 	fmt.Scan(&svaret)
+	// 	svaret = strings.ToLower(svaret)
+	// 	if svaret == "y" {
+	// 		fortsätta = true
+	// 		continue
+	// 	} else {
+	// 		fortsätta = false
+	// 		break
+	// 	}
+	// }
+
+	// 4. LOOP #4
+	// Be användaren mata in ett tal. Spara värdet i en variabel. Upprepa detta 10 gånger. För
+	// varje gång lägg till det inmatade värdet till variabelns värde. När det är klart skriv ut-
+	// Summan av det du matat in är: summan.
+	// var no int
+	// fmt.Print("Mata in ett tal :")
+	// fmt.Scan(&no)
+	// var summa int
+	// for i := 0; i < 10; i++ {
+	// 	summa += no
+	// 	fmt.Println(summa)
+	// }
+	// fmt.Printf("Summan av det du matat in är: %v\n", summa)
+
+	// 5. LOOP #5
+	// Skapa ett program där användaren får mata in ett tal. Låt sedan programmet skriva ut
+	// alla siffor som är mindre än det inmatade talet men större än 0. Lös detta med en
+	// loop.
+	// var no int
+	// fmt.Print("Mata in ett tal :")
+	// fmt.Scan(&no)
+	// for i := no - 1; i > 0; i-- {
+	// 	fmt.Println(i)
+	// }
+
+	// 6. LOOP #7 (Överkurs)
+	// Rolling the dice
+	// Kasta två tärningar” och visa resultatet enligt skärmdump ända tills man INTE svarar ”y” eller ”yes” på frågan om igen
+	var fortsätta bool = true
+	fmt.Println("Welcome to Rooling the dice")
+	for fortsätta {
+		randomNo1 := rand.IntN(7)
+		if randomNo1 == 0 {
+			randomNo1 = 1
 		}
-	} else if summa > 25 && summa <= 50 {
-		if harRabatt == "ja" {
-			fmt.Println("Du kan köpa en stor hamburgare och pommes frites.")
-		} else {
-			fmt.Println("Du kan köpa en stor hamburgare.")
+		randomNo2 := rand.IntN(7)
+		if randomNo2 == 0 {
+			randomNo2 = 1
 		}
-	} else if summa > 50 && summa <= 60 && harRabatt == "ja" {
-		fmt.Println("Du kan köpa ett meal med dryck.")
-	} else if summa > 60 {
-		fmt.Println("Du kan köpa ett meal med dryck.")
-	} else {
-		fmt.Println("Tyvärr, du har inte tillräckligt med pengar.")
+		fmt.Printf("\n\nYour first dice is %v and second dice is %v\n\n", randomNo1, randomNo2)
+		if randomNo1 == randomNo2 {
+			fmt.Println("You are lucky! You have found 2 same number!")
+		}
+		if randomNo1 == 6 && randomNo2 == 6 {
+			fmt.Println("You found 6x6! Lets rock!")
+		}
+		var svaret string
+		fmt.Print("Vill du fortsätta programmet?y/n :")
+		fmt.Scan(&svaret)
+		svaret = strings.ToLower(svaret)
+		if svaret == "y" {
+			fortsätta = true
+			continue
+		} else {
+			fortsätta = false
+			break
+		}
 	}
+
 }
