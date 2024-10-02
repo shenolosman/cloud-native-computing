@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
-	"math/rand/v2"
-	"strings"
+	"week1/bank"
+	//"week1/bank"
 )
 
 func main() {
+	//--------------------------- dag1--------------------------
 	// var message string = "Hello Världen From Markaryd!"
 	// var age int = 36
 
@@ -277,35 +278,94 @@ func main() {
 	// 6. LOOP #7 (Överkurs)
 	// Rolling the dice
 	// Kasta två tärningar” och visa resultatet enligt skärmdump ända tills man INTE svarar ”y” eller ”yes” på frågan om igen
-	var fortsätta bool = true
-	fmt.Println("Welcome to Rooling the dice")
-	for fortsätta {
-		randomNo1 := rand.IntN(7)
-		if randomNo1 == 0 {
-			randomNo1 = 1
-		}
-		randomNo2 := rand.IntN(7)
-		if randomNo2 == 0 {
-			randomNo2 = 1
-		}
-		fmt.Printf("\n\nYour first dice is %v and second dice is %v\n\n", randomNo1, randomNo2)
-		if randomNo1 == randomNo2 {
-			fmt.Println("You are lucky! You have found 2 same number!")
-		}
-		if randomNo1 == 6 && randomNo2 == 6 {
-			fmt.Println("You found 6x6! Lets rock!")
-		}
-		var svaret string
-		fmt.Print("Vill du fortsätta programmet?y/n :")
-		fmt.Scan(&svaret)
-		svaret = strings.ToLower(svaret)
-		if svaret == "y" {
-			fortsätta = true
-			continue
-		} else {
-			fortsätta = false
-			break
-		}
-	}
+	// var fortsätta bool = true
+	// fmt.Println("Welcome to Rooling the dice")
+	// for fortsätta {
+	// 	randomNo1 := rand.IntN(7)
+	// 	if randomNo1 == 0 {
+	// 		randomNo1 = 1
+	// 	}
+	// 	randomNo2 := rand.IntN(7)
+	// 	if randomNo2 == 0 {
+	// 		randomNo2 = 1
+	// 	}
+	// 	fmt.Printf("\n\nYour first dice is %v and second dice is %v\n\n", randomNo1, randomNo2)
+	// 	if randomNo1 == randomNo2 {
+	// 		fmt.Println("You are lucky! You have found 2 same number!")
+	// 	}
+	// 	if randomNo1 == 6 && randomNo2 == 6 {
+	// 		fmt.Println("You found 6x6! Lets rock!")
+	// 	}
+	// 	var svaret string
+	// 	fmt.Print("Vill du fortsätta programmet?y/n :")
+	// 	fmt.Scan(&svaret)
+	// 	svaret = strings.ToLower(svaret)
+	// 	if svaret == "y" {
+	// 		fortsätta = true
+	// 		continue
+	// 	} else {
+	// 		fortsätta = false
+	// 		break
+	// 	}
+	// }
 
+	//--------------------------- dag2--------------------------
+	//funkitoner
+
+	// add(5, 5)
+
+	// fmt.Println("Area: ", rectangle(20, 30))
+
+	// var a, p int
+	// a, p = rectangle(20, 30)
+	// fmt.Println("Area:", a)
+	// fmt.Println("Parameter:", p)
+
+	balance := 6000
+	belopp := 1555
+	errorText := ""
+	balance, errorText = bank.Withdraw(balance, belopp)
+	if len(errorText) > 0 {
+		fmt.Println(errorText)
+	}
+	fmt.Println(balance)
+
+	// arr1 := [6]int{10, 11, 12, 13, 14, 15}
+	// myslice1 := make([]int, 5, 10)
+	// fmt.Println(arr1)
+	// fmt.Println(myslice1)
+	//FindBiggestNumber()
+	LongestName()
 }
+
+//	func add(x int, y int) {
+//		total := 0
+//		total = x + y
+//		fmt.Println(total)
+//	}
+//
+//	func rectangle(l int, b int) (area int) {
+//		var parameter int
+//		parameter = 2 * (l + b)
+//		fmt.Println("Parameter: ", parameter)
+//		area = l * b
+//		return // Return statement without specify variable name
+//	}
+//
+//	func rectangle(l int, b int) (area int, parameter int) {
+//		parameter = 2 * (l + b)
+//		area = l * b
+//		return // Return statement without specify variable name
+//	}
+
+// func printMenu() {
+// 	fmt.Println("\n1. Skapa device :")
+// 	fmt.Println("2. Lista Alla :")
+// 	fmt.Println("3. Ändra device :")
+// 	fmt.Println("4. Sök :")
+// 	fmt.Println("5. Avsluta :")
+// }
+
+// func createDevice(name string) (errorText string) {
+
+// }
