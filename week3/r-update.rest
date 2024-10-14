@@ -1,0 +1,14 @@
+# PUT EMPLOYEE
+PUT http://localhost:8080/api/employees/1
+Content-Type: application/json; charset=utf8
+{
+  "ID": 1,
+  "CreatedAt": "2024-10-14T17:55:37.0259876+02:00",
+  "UpdatedAt": "2024-10-14T17:55:37.0259876+02:00",
+  "DeletedAt": null,
+  "name": "John Doe",
+  "age": 36,
+  "streetAddress": "123 Elm St",
+  "postalCode": 12345,
+  "city": "New York"
+}

@@ -1,0 +1,9 @@
+# POST EMPLOYEE
+POST http://localhost:8080/api/employees
+{
+  "name": "Merve O",
+  "age": 29,
+  "streetAddress": "5 Stenveg",
+  "postalCode": 12345,
+  "city": "Markaryd"
+}

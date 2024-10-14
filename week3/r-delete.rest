@@ -1,0 +1,2 @@
+# DELETE EMPLOYEE
+DELETE http://localhost:8080/api/employees/4

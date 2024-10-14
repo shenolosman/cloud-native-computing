@@ -1,15 +1,14 @@
+# GET ALL
 GET http://localhost:8080/api/employees
 
-
+# GET one Employee
 GET http://localhost:8080/api/employees/1
 
 
-
+# POST EMPLOYEE
 POST http://localhost:8080/api/employees
 Content-Type: application/json; charset=utf8
-
 {
-    "id":3,
     "name": "John Doe",
     "age": 30, 
     "streetAddress":"123 Elm St", 
