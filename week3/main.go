@@ -21,26 +21,32 @@ type Employee struct {
 var db *gorm.DB
 
 // Initialize the database connection
-func initDatabase() {
+func initDatabase(file, server, database, username, password string, port int) {
 	var err error
-	db, err = gorm.Open(sqlite.Open("local.db"), &gorm.Config{})
+	db, err = gorm.Open(sqlite.Open(file), &gorm.Config{})
 	if err != nil {
 		panic("Error connecting/creating the sqlite db")
 	}
 
 	// Migrate the schema
 	db.AutoMigrate(&Employee{})
-
-	// Prepopulate the database with initial employees
-	employees := []Employee{
-		{Name: "John Doe", Age: 30, StreetAddress: "123 Elm St", PostalCode: 12345, City: "New York"},
-		{Name: "Jane Smith", Age: 28, StreetAddress: "456 Oak St", PostalCode: 67890, City: "Los Angeles"},
-		{Name: "Alice Johnson", Age: 35, StreetAddress: "789 Pine St", PostalCode: 54321, City: "Chicago"},
+	var antal int64
+	db.Model(&Employee{}).Count(&antal) // select count(*) from Employee
+	if antal == 0 {
+		db.Create(&Employee{Name: "John Doe", Age: 30, StreetAddress: "123 Elm St", PostalCode: 12345, City: "New York"})
+		db.Create(&Employee{Name: "Jane Smith", Age: 28, StreetAddress: "456 Oak St", PostalCode: 67890, City: "Los Angeles"})
+		db.Create(&Employee{Name: "Alice Johnson", Age: 35, StreetAddress: "789 Pine St", PostalCode: 54321, City: "Chicago"})
 	}
+	// // Prepopulate the database with initial employees
+	// employees := []Employee{
+	// 	{Name: "John Doe", Age: 30, StreetAddress: "123 Elm St", PostalCode: 12345, City: "New York"},
+	// 	{Name: "Jane Smith", Age: 28, StreetAddress: "456 Oak St", PostalCode: 67890, City: "Los Angeles"},
+	// 	{Name: "Alice Johnson", Age: 35, StreetAddress: "789 Pine St", PostalCode: 54321, City: "Chicago"},
+	// }
 
-	for _, emp := range employees {
-		CreateEmployee(emp) // Create each employee in the database
-	}
+	// for _, emp := range employees {
+	// 	CreateEmployee(emp) // Create each employee in the database
+	// }
 }
 
 // CreateEmployee creates a new employee and adds it to the database
@@ -162,8 +168,17 @@ func DeleteEmployeeHandler(c *gin.Context) {
 	}
 }
 
+var config Config
+
 func main() {
-	initDatabase() // Initialize the database connection
+	readConfig(&config)
+
+	initDatabase(config.Database.File,
+		config.Database.Server,
+		config.Database.Database,
+		config.Database.Username,
+		config.Database.Password,
+		config.Database.Port) // Initialize the database connection
 
 	r := gin.Default()
 
