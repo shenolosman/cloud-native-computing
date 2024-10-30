@@ -1,0 +1,38 @@
+[
+    {
+        "label": "Person",
+        "kind": 6,
+        "importPath": "week6.main",
+        "description": "week6.main",
+        "peekOfCode": "class Person:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n    def __str__(self):\n        return f\"{self.name} is {self.age} years old\"\np1 = Person(\"John\", 36)\nprint(p1)\ndef calculateTotalPrice(quantity:float, price:int)-> float:\n    totalPrice = quantity * price",
+        "detail": "week6.main",
+        "documentation": {}
+    },
+    {
+        "label": "calculateTotalPrice",
+        "kind": 2,
+        "importPath": "week6.main",
+        "description": "week6.main",
+        "peekOfCode": "def calculateTotalPrice(quantity:float, price:int)-> float:\n    totalPrice = quantity * price\n    return totalPrice\nresult = calculateTotalPrice(55.5, 100)\nprint(f\"The total price is: {result}\")",
+        "detail": "week6.main",
+        "documentation": {}
+    },
+    {
+        "label": "p1",
+        "kind": 5,
+        "importPath": "week6.main",
+        "description": "week6.main",
+        "peekOfCode": "p1 = Person(\"John\", 36)\nprint(p1)\ndef calculateTotalPrice(quantity:float, price:int)-> float:\n    totalPrice = quantity * price\n    return totalPrice\nresult = calculateTotalPrice(55.5, 100)\nprint(f\"The total price is: {result}\")",
+        "detail": "week6.main",
+        "documentation": {}
+    },
+    {
+        "label": "result",
+        "kind": 5,
+        "importPath": "week6.main",
+        "description": "week6.main",
+        "peekOfCode": "result = calculateTotalPrice(55.5, 100)\nprint(f\"The total price is: {result}\")",
+        "detail": "week6.main",
+        "documentation": {}
+    }
+]
