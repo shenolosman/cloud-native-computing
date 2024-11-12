@@ -1,0 +1,24 @@
+START JavaConfigurationSpringSmall.mp4 - video
+
+STEG 0 SKAPA EN IMAGE OCH KALLA DEN extractspeaker
+docker build -t extractspeaker .
+
+
+STEG 1 :
+Ta min video och ta fram speaker.wav (ljud)
+
+docker run --rm --volume=$(PWD)/indata:/indata extractspeaker  JavaConfigurationSpringSmall.mp4 speaker.wav  
+
+
+
+STEG 2:
+Denna skickas till 
+
+docker run  -it -v "${PWD}/indata:/app" -v whisper_cache:/.cache ghcr.io/jim60105/whisperx:latest -- --model large-v3   --align_model WAV2VEC2_ASR_LARGE_LV60K_960H --compute_type int8    --language en  --output_format srt speaker.wav 
+
+
+
+docker run --gpus all -it -v "${PWD}/indata:/app" -v whisper_cache:/.cache ghcr.io/jim60105/whisperx:latest -- --model large-v3   --align_model WAV2VEC2_ASR_LARGE_LV60K_960H    --language en  --output_format srt speaker.wav 
+som skapar en speaker.srt som 
+#är på ordnivå
+
